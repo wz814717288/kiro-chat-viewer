@@ -95,7 +95,7 @@ python -m backend.app
   - 一键自动:在「设置」里配置 Kiro API key 并安装 kiro-cli 后,服务后台调用 `kiro-cli` 用 Kiro 自己的模型生成,全程本地。
   - 半自动桥接:复制 Prompt 到 Kiro IDE 对话生成画像,再把回答贴回保存。
   - 生成语言跟随界面语言;输出不含开场白(从标题开始)。
-- **中英文切换**:顶栏语言按钮(中 / EN)切换界面展示语言,并同步影响画像的生成语言。偏好存于浏览器 localStorage。
+- **中英文切换**:默认英文界面;顶栏语言按钮(中 / EN)切换界面展示语言,并同步影响画像的生成语言。偏好存于浏览器 localStorage。
 - **设置**:Web 界面配置 Kiro API key(ksk_)与生成用模型。key 仅存本机 `data/settings.json`(0600 权限、被 .gitignore 忽略、界面只显示打码值),供 kiro-cli 调用使用。也可改用环境变量 `KIRO_API_KEY`。模型从 `kiro-cli --list-models` 拉取,注意账号可能只对部分模型有权限(遇到「模型不可用」就在设置里换一个)。
 
 ## 接口

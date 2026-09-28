@@ -3,6 +3,8 @@
 (function (global) {
   const DICT = {
     zh: {
+      docTitle: "Kiro 历史对话查看器",
+      toggleSidebarTip: "隐藏/显示会话列表",
       brand: "Kiro 历史对话",
       searchPlaceholder: "全文检索对话内容… (回车)",
       search: "搜索",
@@ -187,6 +189,8 @@
       indexFail: "索引失败: ",
     },
     en: {
+      docTitle: "Kiro Chat Viewer",
+      toggleSidebarTip: "Show / hide session list",
       brand: "Kiro Chat History",
       searchPlaceholder: "Full-text search… (Enter)",
       search: "Search",
@@ -368,7 +372,8 @@
     },
   };
 
-  let lang = localStorage.getItem("kcv_lang") || "zh";
+  // 默认英文;用户手动切换后以 localStorage 中的选择为准
+  let lang = localStorage.getItem("kcv_lang") === "zh" ? "zh" : "en";
 
   function t(key, ...args) {
     const v = (DICT[lang] && DICT[lang][key]) != null ? DICT[lang][key] : (DICT.zh[key] != null ? DICT.zh[key] : key);

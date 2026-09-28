@@ -108,8 +108,8 @@ def api_get_profile():
 
 
 @app.get("/api/profile/prompt")
-def api_profile_prompt(lang: str = Query(default="zh")):
-    lang = lang if lang in ("zh", "en") else "zh"
+def api_profile_prompt(lang: str = Query(default="en")):
+    lang = lang if lang in ("zh", "en") else "en"
     return {"prompt": profile.build_prompt(lang)}
 
 
@@ -124,8 +124,8 @@ def api_save_profile(content: str = Body(..., embed=True)):
 
 
 @app.post("/api/profile/generate")
-def api_profile_generate(lang: str = Query(default="zh")):
-    lang = lang if lang in ("zh", "en") else "zh"
+def api_profile_generate(lang: str = Query(default="en")):
+    lang = lang if lang in ("zh", "en") else "en"
     if not kirocli.available():
         raise HTTPException(status_code=400, detail="kiro-cli 未安装")
     if not settings.get_api_key():
@@ -277,9 +277,9 @@ def api_get_analysis(
     session_id: str,
     refresh: bool = Query(default=False),
     cached_only: bool = Query(default=False),
-    lang: str = Query(default="zh"),
+    lang: str = Query(default="en"),
 ):
-    lang = lang if lang in ("zh", "en") else "zh"
+    lang = lang if lang in ("zh", "en") else "en"
     if not refresh:
         cached = db.get_analysis(session_id)
         # 仅当缓存语言与页面语言一致时才复用;否则按当前语言重新生成

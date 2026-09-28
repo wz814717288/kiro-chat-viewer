@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kiro 历史对话查看器</title>
+  <title>Kiro Chat Viewer</title>
   <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
   <header class="topbar">
-    <button id="toggleSidebar" class="ghost icon-btn" title="隐藏/显示会话列表">☰</button>
-    <div class="brand">Kiro 历史对话</div>
+    <button id="toggleSidebar" class="ghost icon-btn" title="Show / hide session list">☰</button>
+    <div class="brand">Kiro Chat History</div>
     <div class="search">
-      <input id="searchInput" type="text" placeholder="全文检索对话内容… (回车)" />
-      <button id="searchBtn">搜索</button>
-      <button id="clearBtn" class="ghost">清除</button>
+      <input id="searchInput" type="text" placeholder="Full-text search… (Enter)" />
+      <button id="searchBtn">Search</button>
+      <button id="clearBtn" class="ghost">Clear</button>
     </div>
     <div class="actions">
       <span id="stats" class="stats"></span>
-      <button id="profileBtn" class="ghost">🪞 你的数字画像</button>
-      <button id="todosBtn" class="ghost">✅ 待办</button>
-      <button id="dashBtn" class="ghost">📊 统计</button>
-      <button id="settingsBtn" class="ghost">⚙️ 设置</button>
-      <button id="langBtn" class="ghost" title="中文 / English">EN</button>
-      <button id="reindexBtn" class="ghost">重建索引</button>
+      <button id="profileBtn" class="ghost">🪞 Your Digital Profile</button>
+      <button id="todosBtn" class="ghost">✅ Todos</button>
+      <button id="dashBtn" class="ghost">📊 Stats</button>
+      <button id="settingsBtn" class="ghost">⚙️ Settings</button>
+      <button id="langBtn" class="ghost" title="中文 / English">中</button>
+      <button id="reindexBtn" class="ghost">Reindex</button>
     </div>
   </header>
 
@@ -30,33 +30,33 @@
     <aside class="sidebar">
       <div class="sidebar-head">
         <div class="sidebar-head-top">
-          <span id="listTitle">会话列表</span>
-          <button id="selectBtn" class="ghost mini-btn">选择</button>
+          <span id="listTitle">Sessions</span>
+          <button id="selectBtn" class="ghost mini-btn">Select</button>
         </div>
         <div class="filters">
-          <select id="modelFilter"><option value="">全部模型</option></select>
-          <select id="modeFilter"><option value="">全部模式</option></select>
+          <select id="modelFilter"><option value="">All models</option></select>
+          <select id="modeFilter"><option value="">All modes</option></select>
           <select id="sortSelect">
-            <option value="modified_desc">最近更新</option>
-            <option value="created_desc">最近创建</option>
-            <option value="messages_desc">消息最多</option>
-            <option value="messages_asc">消息最少</option>
-            <option value="title_asc">标题 A-Z</option>
+            <option value="modified_desc">Recently updated</option>
+            <option value="created_desc">Recently created</option>
+            <option value="messages_desc">Most messages</option>
+            <option value="messages_asc">Fewest messages</option>
+            <option value="title_asc">Title A-Z</option>
           </select>
         </div>
-        <input id="wsFilter" type="text" placeholder="按工作区过滤…" />
+        <input id="wsFilter" type="text" placeholder="Filter by workspace…" />
       </div>
       <ul id="sessionList" class="session-list"></ul>
       <div id="pager" class="pager"></div>
       <div id="exportBar" class="export-bar" style="display:none">
         <div class="export-bar-row">
           <span id="exportCount" class="stats"></span>
-          <label class="switch"><input type="checkbox" id="exportTools" /> <span id="exportToolsLabel">含工具</span></label>
+          <label class="switch"><input type="checkbox" id="exportTools" /> <span id="exportToolsLabel">With tools</span></label>
         </div>
         <div class="export-bar-row">
-          <button id="exportSelAll" class="ghost mini-btn">全选</button>
-          <button id="exportGo">导出</button>
-          <button id="exportCancel" class="ghost mini-btn">取消</button>
+          <button id="exportSelAll" class="ghost mini-btn">All</button>
+          <button id="exportGo">Export</button>
+          <button id="exportCancel" class="ghost mini-btn">Cancel</button>
         </div>
       </div>
     </aside>
@@ -64,7 +64,7 @@
     <section class="content">
       <!-- 会话详情视图 -->
       <div id="detailView" class="detail">
-        <div class="placeholder">从左侧选择一个会话,或在上方搜索。</div>
+        <div class="placeholder">Pick a session on the left, or search above.</div>
       </div>
 
       <!-- 统计仪表盘视图 -->

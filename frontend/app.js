@@ -38,6 +38,9 @@ function renderPlaceholder() {
 
 // 顶栏/侧栏等静态文案的本地化
 function applyChrome() {
+  document.documentElement.lang = window.getLang() === "en" ? "en" : "zh-CN";
+  document.title = t("docTitle");
+  $("toggleSidebar").title = t("toggleSidebarTip");
   document.querySelector(".brand").textContent = t("brand");
   $("searchInput").placeholder = t("searchPlaceholder");
   $("searchBtn").textContent = t("search");
