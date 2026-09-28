@@ -5,8 +5,10 @@ data/index.db-wal
 data/index.db-shm
 data/*.local.json
 
-# 虚拟环境与本地配置
+# 虚拟环境、run.sh/run.bat 自动安装的 uv 与 Python、本地配置
 .venv/
+.tools/
+.python/
 .env
 
 # Python

@@ -11,7 +11,7 @@ This repo is a local web app (FastAPI backend + static vanilla-JS frontend) that
 Data is read-only from `~/.kiro`; the app never writes back to Kiro. The index and any API key live under `data/` (git-ignored).
 
 ## Prerequisites (verify first)
-1. Python 3.8+ available (`python3 --version` or `python --version`).
+1. Python 3.8+ is optional when using `run.sh` / `run.bat`: if none is usable, the script downloads uv into `.tools/` and a standalone Python into `.python/` (needs internet on first run). The manual fallback below does require Python 3.8+.
 2. This is the repo root (contains `run.sh`, `requirements.txt`, and the `backend/` folder).
 3. The user has used Kiro before, so `~/.kiro/sessions` exists. If missing, the app still starts but shows no data — tell the user.
 4. Optional, only for one-click profile generation: `kiro-cli` installed and an API key. Without it, the profile bridge still works.
@@ -58,7 +58,7 @@ Give them the exact URL. Mention that in Kiro IDE they can also open it via the 
 - Keep the server bound to `127.0.0.1`. Do not expose it on `0.0.0.0` — the history may contain secrets.
 
 ## Troubleshooting
-- "python not found" or version < 3.8 → ask the user to install Python 3.8+.
+- "自动安装 Python 失败" → check network access to astral.sh and GitHub (or set `UV_PYTHON_INSTALL_MIRROR`); otherwise ask the user to install Python 3.8+, or point `KCV_PYTHON` at an existing interpreter.
 - Dependency install fails → ensure network access to PyPI; retry `pip install -r requirements.txt` inside the venv.
 - Port already in use → `run.sh` auto-increments; for manual start set `KCV_PORT` to a free port.
 - Empty session list → confirm `~/.kiro/sessions` exists; if the user is on an older Kiro whose data lives in `globalStorage/kiro.kiroagent`, the current parser does not read that layout yet.

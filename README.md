@@ -37,13 +37,20 @@ kiro-chat-viewer/
 
 ### 前置条件
 
-- Python 3.8+
+- Python 3.8+(可选:用一键脚本时,本机没有可用 Python 会自动用 [uv](https://docs.astral.sh/uv/) 下载独立 Python 到项目内 `.python/`,首次需联网,约 100MB)
 - 本机已安装并使用过 Kiro(存在 `~/.kiro/sessions` 历史数据)
 - (可选)kiro-cli + API key —— 仅「一键自动生成画像」需要;没有则用手动桥接
 
+### 获取代码
+
+```bash
+git clone https://github.com/wz814717288/kiro-chat-viewer.git
+cd kiro-chat-viewer
+```
+
 ### 一键启动(推荐)
 
-脚本会自动创建虚拟环境、安装依赖、探测可用端口、启动服务并打开浏览器。
+脚本会自动定位 Python(依次尝试 `KCV_PYTHON`、项目内 `.python/`、`python3.13`…`python3.8`、`python3`、`python`;都不可用时自动安装)、创建虚拟环境、安装依赖、探测可用端口、启动服务并打开浏览器。已有 `.venv` 不可用时会自动重建。网络受限可设置 `PIP_INDEX_URL` / `UV_PYTHON_INSTALL_MIRROR` 镜像,见 `.env.example`。
 
 ```bash
 # macOS / Linux(在 kiro-chat-viewer 目录下)
