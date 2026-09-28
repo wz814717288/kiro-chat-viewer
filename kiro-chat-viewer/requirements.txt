@@ -1,0 +1,3 @@
+# 已在 Python 3.8+ 验证的固定版本,保证他人环境一致
+fastapi==0.110.3
+uvicorn[standard]==0.29.0

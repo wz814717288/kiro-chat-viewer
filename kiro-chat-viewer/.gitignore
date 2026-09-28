@@ -1,0 +1,14 @@
+# 本地索引与设置(含敏感信息,勿入库)
+data/settings.json
+data/index.db
+data/index.db-wal
+data/index.db-shm
+data/*.local.json
+
+# 虚拟环境与本地配置
+.venv/
+.env
+
+# Python
+__pycache__/
+*.pyc

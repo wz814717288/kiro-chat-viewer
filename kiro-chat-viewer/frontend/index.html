@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiro 历史对话查看器</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <button id="toggleSidebar" class="ghost icon-btn" title="隐藏/显示会话列表">☰</button>
+    <div class="brand">Kiro 历史对话</div>
+    <div class="search">
+      <input id="searchInput" type="text" placeholder="全文检索对话内容… (回车)" />
+      <button id="searchBtn">搜索</button>
+      <button id="clearBtn" class="ghost">清除</button>
+    </div>
+    <div class="actions">
+      <span id="stats" class="stats"></span>
+      <button id="profileBtn" class="ghost">🪞 你的数字画像</button>
+      <button id="todosBtn" class="ghost">✅ 待办</button>
+      <button id="dashBtn" class="ghost">📊 统计</button>
+      <button id="settingsBtn" class="ghost">⚙️ 设置</button>
+      <button id="langBtn" class="ghost" title="中文 / English">EN</button>
+      <button id="reindexBtn" class="ghost">重建索引</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <div class="sidebar-head-top">
+          <span id="listTitle">会话列表</span>
+          <button id="selectBtn" class="ghost mini-btn">选择</button>
+        </div>
+        <div class="filters">
+          <select id="modelFilter"><option value="">全部模型</option></select>
+          <select id="modeFilter"><option value="">全部模式</option></select>
+          <select id="sortSelect">
+            <option value="modified_desc">最近更新</option>
+            <option value="created_desc">最近创建</option>
+            <option value="messages_desc">消息最多</option>
+            <option value="messages_asc">消息最少</option>
+            <option value="title_asc">标题 A-Z</option>
+          </select>
+        </div>
+        <input id="wsFilter" type="text" placeholder="按工作区过滤…" />
+      </div>
+      <ul id="sessionList" class="session-list"></ul>
+      <div id="pager" class="pager"></div>
+      <div id="exportBar" class="export-bar" style="display:none">
+        <div class="export-bar-row">
+          <span id="exportCount" class="stats"></span>
+          <label class="switch"><input type="checkbox" id="exportTools" /> <span id="exportToolsLabel">含工具</span></label>
+        </div>
+        <div class="export-bar-row">
+          <button id="exportSelAll" class="ghost mini-btn">全选</button>
+          <button id="exportGo">导出</button>
+          <button id="exportCancel" class="ghost mini-btn">取消</button>
+        </div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <!-- 会话详情视图 -->
+      <div id="detailView" class="detail">
+        <div class="placeholder">从左侧选择一个会话,或在上方搜索。</div>
+      </div>
+
+      <!-- 统计仪表盘视图 -->
+      <div id="dashView" class="dashboard" style="display:none"></div>
+
+      <!-- 待办视图 -->
+      <div id="todosView" class="dashboard" style="display:none"></div>
+
+      <!-- Kiro 眼中的你 视图 -->
+      <div id="profileView" class="dashboard" style="display:none"></div>
+
+      <!-- 设置视图 -->
+      <div id="settingsView" class="dashboard" style="display:none"></div>
+    </section>
+  </main>
+
+  <script src="/static/i18n.js"></script>
+  <script src="/static/markdown.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
